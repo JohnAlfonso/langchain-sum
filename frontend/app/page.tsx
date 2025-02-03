@@ -1,15 +1,16 @@
 "use client";
 
-import React from "react";
-import { GraphProvider } from "./contexts/GraphContext";
-import { ChatLangChain } from "./components/ChatLangChain";
+import { v4 as uuidv4 } from "uuid";
+import { ChatWindow } from "./components/ChatWindow";
+import { ToastContainer } from "react-toastify";
 
-export default function Page(): React.ReactElement {
+import { ChakraProvider } from "@chakra-ui/react";
+
+export default function Home() {
   return (
-    <main className="w-full h-full">
-      <GraphProvider>
-        <ChatLangChain />
-      </GraphProvider>
-    </main>
+    <ChakraProvider>
+      <ToastContainer />
+      <ChatWindow conversationId={uuidv4()}></ChatWindow>
+    </ChakraProvider>
   );
 }

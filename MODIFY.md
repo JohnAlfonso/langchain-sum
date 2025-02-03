@@ -72,11 +72,10 @@ The LLM is used inside the `/chat` endpoint for generating the final answer, and
 
 Without any modification, we offer a few LLM providers out of the box:
 
-- `gpt-4o-mini-2024-07-18` by OpenAI
+- `gpt-3.5-turbo-0125` by OpenAI
 - `claude-3-haiku-20240307` by Anthropic
 - `mixtral-8x7b` by Fireworks
 - `gemini-pro` by Google
-- `llama3-70b-8192` by Groq
 - `command` by Cohere
 
 These are all located at the bottom of the [`./backend/chain.py`](./backend/chain.py) file. You have a few options for modifying this:
@@ -90,7 +89,7 @@ First, I'll demonstrate how to replace all options with a single provider, as it
 
 ```python
 llm = ChatOpenAI(
-    model="gpt-4o-mini-2024-07-18",
+    model="gpt-3.5-turbo-0125",
     streaming=True,
     temperature=0,
 ).configurable_alternatives(
